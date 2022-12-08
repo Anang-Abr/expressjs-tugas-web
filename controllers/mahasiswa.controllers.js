@@ -36,8 +36,8 @@ module.exports = {
 		const { nim } = req.params;
 		console.log("masuk ke edit controller", nim);
 		mahasiswaModel.getDataById(nim, function (err, data) {
-			console.log(data);
-			return res.render("mahasiswa/edit", { data: data[0] });
+			return res.json({ data: data[0] });
+			// return res.render("mahasiswa/edit", { data: data[0] });
 		});
 	},
 	update(req, res) {
