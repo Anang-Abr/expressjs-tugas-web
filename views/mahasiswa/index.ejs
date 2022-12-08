@@ -20,15 +20,20 @@
 			<li><%= data.nama %></li>
 			<li><%= data.nim %></li>
 			<li><%= data.jurusan %></li>
-			<li class="[&>a]:py-2 [&>a]:px-4 [&>a]:rounded-xl [&>a]:text-slate-100">
+			<li class="[&>a]:py-2 [&>a]:px-4 [&>a]:rounded-xl [&>a]:text-slate-100 flex gap-1">
 				<a href=<%= `/mahasiswa/${data.nim}`  %> class="bg-cyan-400 hover:bg-cyan-600">Lihat</a>
 				<a onclick="edit('<%= data.nim %>')" class="bg-green-500 hover:bg-green-700">Edit</a>
-				<a href=<%= `/mahasiswa/${data.nim}/delete`  %> class="bg-red-500 hover:bg-red-700"onclick="return confirm('Apakah anda yakin ingin menghapus data?')">Hapus</a>
+				<form action="/mahasiswa/delete" method="post">
+					<input type="hidden" name="nim" id="id" value=<%= data.nim%>>
+					<input type="submit" value="Hapus" class="bg-red-500 px-4 py-2 rounded-xl text-white hover:bg-red-700" onclick="return confirm('Apakah anda yakin ingin menghapus data mahasiswa ini?')">
+				</form>
 			</li>
 		</div>
 		<%}); %>
 	</ul>
 </div>
+
+<!-- edit modal -->
 <div id="edit-modal" class="fixed w-full z-10 h-screen top-0 bottom-0 bg-[#000000cc] hidden">
 	<div class="w-fit mx-auto mt-44 bg-slate-50 p-3 rounded-2xl">
 		<h1 class="font-semibold">Mengubah data mahasiswa</h1>
