@@ -1,0 +1,30 @@
+<%- include('../components/header') %>
+<div class="container p-20 flex flex-col gap-8 items-center">
+	<div class="w-[60rem]">
+		<a
+			href="/mahasiswa"
+			class="py-2 px-4 bg-slate-400 hover:bg-slate-300 rounded-lg self-start"
+			>Kembali</a
+		>
+	</div>
+	<ul
+		class="[&>div]:grid [&>div]:grid-cols-[100px_10px_1fr] w-[60rem] rounded-xl shadow-md p-6 flex flex-col gap-4"
+	>
+		<div>
+			<li>Nama</li>
+			<li><span>:</span></li>
+			<li><%= mahasiswa.nama %></li>
+		</div>
+		<div>
+			<li>NIM</li>
+			<li><span>:</span></li>
+			<li><%= mahasiswa.nim %></li>
+		</div>
+		<div>
+			<li>jurusan</li>
+			<li><span>:</span></li>
+			<li><%= mahasiswa.jurusan %></li>
+		</div>
+	</ul>
+</div>
+<%- include('../components/footer') %>

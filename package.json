@@ -1,0 +1,25 @@
+{
+	"name": "express-ejs",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "nodemon ./bin/www",
+		"tailwind": "npx tailwindcss -i ./style.css -o ./public/stylesheets/style.css --watch"
+	},
+	"dependencies": {
+		"autoprefixer": "^10.4.13",
+		"cookie-parser": "~1.4.4",
+		"cors": "^2.8.5",
+		"debug": "~2.6.9",
+		"ejs": "~2.6.1",
+		"express": "~4.16.1",
+		"http-errors": "~1.6.3",
+		"morgan": "~1.9.1",
+		"mysql": "^2.18.1",
+		"nodemon": "^2.0.20",
+		"postcss": "^8.4.19"
+	},
+	"devDependencies": {
+		"tailwindcss": "^3.2.4"
+	}
+}

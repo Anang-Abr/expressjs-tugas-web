@@ -1,0 +1,40 @@
+<%- include('../components/header') %>
+<% console.log('test') %> 
+<div class="container p-20 flex flex-col gap-8">
+	<h1 class="font-bold text-3xl">Data Semua Mahasiswa</h1>
+	<div class="[&>a]:py-2 [&>a]:px-4 [&>a]:rounded-xl [&>a]:text-slate-100">
+		<a href="/" class="bg-sky-500 hover:bg-sky-700">Kembali ke home</a>
+		<a href="/mahasiswa/add" class="bg-emerald-500 hover:bg-emerald-700">Tambahkan Data</a>
+	</div>
+	<ul class="[&>div]:grid-cols-[50px_repeat(4,_1fr)] [&>div]:p-[1rem] [&>div]:border-b-[1px] [&>div]:border-slate-300 overflow-hidden  [&>div]:grid bg-slate-100 rounded-xl">
+		<div class="[&>li]:font-bold">
+			<li class="text-center">#</li>
+			<li>Nama</li>
+			<li>NIM</li>
+			<li>Jurusan</li>
+			<li class="pl-[4.2rem]">Actions</li>
+		</div>
+		<% mahasiswa.forEach((data,index) => {%>
+		<div>
+			<li class="text-center"><%= index+1 %></li>
+			<li><%= data.nama %></li>
+			<li><%= data.nim %></li>
+			<li><%= data.jurusan %></li>
+			<li class="[&>a]:py-2 [&>a]:px-4 [&>a]:rounded-xl [&>a]:text-slate-100">
+				<a href=<%= `/mahasiswa/${data.nim}`  %> class="bg-cyan-400 hover:bg-cyan-600">Lihat</a>
+				<a href=<%= `/mahasiswa/${data.nim}/edit`  %> class="bg-green-500 hover:bg-green-700">Edit</a>
+				<a href=<%= `/mahasiswa/${data.nim}/delete`  %> class="bg-red-500 hover:bg-red-700"onclick="return confirm('Apakah anda yakin ingin menghapus data?')">Hapus</a>
+			</li>
+		</div>
+		<%}); %>
+	</ul>
+</div>
+<script>
+	console.log('data dari be',data)
+	const apiCall = async () => {
+		const data = await fetch('http://localhost:3000/mahasiswa/api/getall')
+		console.log(await data.json())	
+	}
+	apiCall()
+</script>
+<%- include('../components/footer') %>
