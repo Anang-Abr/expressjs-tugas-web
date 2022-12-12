@@ -16,6 +16,7 @@ module.exports = {
 		connection.query("UPDATE mahasiswa set ? where nim = ?", [args, nim], cb);
 	},
 	delete(nim, cb) {
+		console.log(nim);
 		connection.query("DELETE from mahasiswa where nim = ?", [nim], cb);
 	},
 };

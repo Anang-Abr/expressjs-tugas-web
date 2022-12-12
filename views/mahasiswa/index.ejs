@@ -21,10 +21,10 @@
 			<li><%= data.nim %></li>
 			<li><%= data.jurusan %></li>
 			<li class="[&>a]:py-2 [&>a]:px-4 [&>a]:rounded-xl [&>a]:text-slate-100 flex gap-1">
-				<a href=<%= `/mahasiswa/${data.nim}`  %> class="bg-cyan-400 hover:bg-cyan-600">Lihat</a>
+				<a href="<%= `/mahasiswa/${data.nim}`  %>" class="bg-cyan-400 hover:bg-cyan-600">Lihat</a>
 				<a onclick="edit('<%= data.nim %>')" class="bg-green-500 hover:bg-green-700">Edit</a>
 				<form action="/mahasiswa/delete" method="post">
-					<input type="hidden" name="nim" id="id" value=<%= data.nim%>>
+					<input type="hidden" name="nim" id="id" value="<%= data.nim%>">
 					<input type="submit" value="Hapus" class="bg-red-500 px-4 py-2 rounded-xl text-white hover:bg-red-700" onclick="return confirm('Apakah anda yakin ingin menghapus data mahasiswa ini?')">
 				</form>
 			</li>
@@ -42,20 +42,19 @@
 		method="post"
 		class="[&>div]:bg-slate-200 flex flex-col gap-3 [&>div]:w-full [&>div]:grid [&>div]:grid-cols-[70px_1fr] [&>div]:rounded-xl first-letter:[&>div]:overflow-hidden [&>div>label]:p-2 p-5 w-fit [&>div>input]:border [&>div>input]:rounded-r-xl [&>div>input]:border-slate-200"
 	>
-		<input type="hidden" name="id" value="1111" />
+		<input type="hidden" name="id"  />
 		<div>
 			<label for="nama">Nama</label>
 			<input
 				type="text"
 				name="nama"
 				id="nama"
-				value="11111"
 				autocomplete="off"
 			/>
 		</div>
 		<div>
 			<label for="nim">NIM</label>
-			<input type="text" name="nim" id="nim" value="1111" readonly />
+			<input type="text" name="nim" id="nim"  readonly />
 		</div>
 		<div>
 			<label for="jurusan">Jurusan</label>
@@ -63,7 +62,6 @@
 				type="text"
 				name="jurusan"
 				id="jurusan"
-				value="11111"
 			/>
 		</div>
 		<section class="grid grid-cols-2 text-center gap-x-5 text-slate-100">

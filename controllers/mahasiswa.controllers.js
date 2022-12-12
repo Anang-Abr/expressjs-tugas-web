@@ -50,6 +50,7 @@ module.exports = {
 	},
 	delete(req, res) {
 		const { nim } = req.body;
+		console.log("controller", nim);
 		mahasiswaModel.delete(nim, (err, data) => {
 			if (err) return res.status(500).send("server error");
 			if (data.affectedRows == 1) res.redirect("/mahasiswa");
