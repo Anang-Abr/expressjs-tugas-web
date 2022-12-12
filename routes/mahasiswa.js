@@ -5,7 +5,6 @@ const mahasiswaController = require("../controllers/mahasiswa.controllers");
 router.get("/", mahasiswaController.index);
 router.get("/api/getall", mahasiswaController.getAll);
 router.post("/update", mahasiswaController.update);
-// router.get("/:nim/delete", mahasiswaController.delete);
 router.post("/delete", mahasiswaController.delete);
 router.get("/:nim/edit", mahasiswaController.edit);
 router.get("/:nim", mahasiswaController.getOne);
